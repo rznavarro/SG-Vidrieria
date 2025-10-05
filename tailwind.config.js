@@ -5,13 +5,11 @@ export default {
     extend: {
       colors: {
         white: '#ffffff',
-        gray: {
-          100: '#e5e7eb',
-          300: '#9ca3af',
+        'midnight-blue': {
+          DEFAULT: '#1a2a3a',
+          light: '#2d4a5a',
+          dark: '#0f1a24',
         },
-        'forest-green': '#1a2f1a',
-        'forest-green-light': '#2d4a2d',
-        'forest-green-dark': '#0f1f0f',
       },
       fontFamily: {
         'great-vibes': ['Great Vibes', 'cursive'],

@@ -9,6 +9,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children, currentSection, onSectionChange }) => {
   const sections = [
     { id: 'dashboard', label: 'Dashboard' },
+    { id: 'calcular', label: 'Calcular' },
     { id: 'clients', label: 'Clientes' },
     { id: 'finances', label: 'Finanzas' },
     { id: 'appointments', label: 'Agenda' },
@@ -17,18 +18,18 @@ const Layout: React.FC<LayoutProps> = ({ children, currentSection, onSectionChan
   ];
 
   return (
-    <div className="min-h-screen bg-forest-green">
+    <div className="min-h-screen bg-midnight-blue">
       {/* Header */}
-      <header className="bg-forest-green-dark p-4 shadow-sm">
+      <header className="bg-midnight-blue-dark p-4 shadow-sm">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-white font-great-vibes text-3xl md:text-4xl text-center">
-            Benjamin Castro
+            Juan  Carlos  Gonzales Catalan
           </h1>
         </div>
       </header>
 
       {/* Navigation */}
-      <nav className="bg-forest-green-dark border-t border-gray-300">
+      <nav className="bg-midnight-blue border-t border-midnight-blue-light">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap justify-center md:justify-start gap-2 p-2">
             {sections.map((section) => (
@@ -37,8 +38,8 @@ const Layout: React.FC<LayoutProps> = ({ children, currentSection, onSectionChan
                 onClick={() => onSectionChange(section.id)}
                 className={`px-4 py-2 text-sm font-medium transition-colors ${
                   currentSection === section.id
-                    ? 'bg-forest-green-light text-white'
-                    : 'text-white hover:bg-forest-green'
+                    ? 'bg-midnight-blue-light text-white'
+                    : 'text-white hover:bg-midnight-blue-light'
                 }`}
               >
                 {section.label}

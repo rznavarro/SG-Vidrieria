@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Layout from './components/Layout';
 import Dashboard from './components/Dashboard';
+import Calculator from './components/Calculator';
 import ClientManagement from './components/ClientManagement';
 import FinanceControl from './components/FinanceControl';
 import AppointmentScheduler from './components/AppointmentScheduler';
 import InventoryManagement from './components/InventoryManagement';
 import Settings from './components/Settings';
 import { useLocalStorage } from './hooks/useLocalStorage';
-import { Client, Transaction, Appointment, InventoryItem, BusinessSettings } from './types';
+import { Client, Transaction, Appointment, InventoryItem, BusinessSettings, Activity } from './types';
 
 function App() {
   const [currentSection, setCurrentSection] = useState('dashboard');
@@ -31,6 +32,7 @@ function App() {
       sunday: { start: '10:00', end: '15:00', closed: true }
     }
   });
+  const [activities, setActivities] = useLocalStorage<Activity[]>('barbershop_activities', []);
 
   // Client Management
   const addClient = (clientData: Omit<Client, 'id' | 'createdAt'>) => {
@@ -40,6 +42,7 @@ function App() {
       createdAt: new Date().toISOString().split('T')[0]
     };
     setClients([...clients, newClient]);
+    addActivity('client', 'creado', `Cliente ${clientData.name} agregado`, 'Clientes');
   };
 
   const updateClient = (id: string, clientData: Partial<Client>) => {
@@ -59,6 +62,8 @@ function App() {
       ...transactionData
     };
     setTransactions([...transactions, newTransaction]);
+    addActivity('transaction', transactionData.type === 'income' ? 'ingreso' : 'gasto',
+               `${transactionData.description} - $${transactionData.amount}`, 'Finanzas');
 
     // If it's an income from a service, update client's total paid
     if (transactionData.type === 'income' && transactionData.category === 'service') {
@@ -78,6 +83,7 @@ function App() {
       ...appointmentData
     };
     setAppointments([...appointments, newAppointment]);
+    addActivity('appointment', 'creada', `Cita para ${appointmentData.clientName} - ${appointmentData.service}`, 'Agenda');
   };
 
   const updateAppointment = (id: string, appointmentData: Partial<Appointment>) => {
@@ -118,6 +124,7 @@ function App() {
       ...itemData
     };
     setInventory([...inventory, newItem]);
+    addActivity('inventory', 'agregado', `Producto ${itemData.name} agregado al inventario`, 'Inventario');
   };
 
   const updateInventoryItem = (id: string, itemData: Partial<InventoryItem>) => {
@@ -130,8 +137,23 @@ function App() {
     setInventory(inventory.filter(item => item.id !== id));
   };
 
+  // Activity logging
+  const addActivity = (type: Activity['type'], action: string, description: string, section: string) => {
+    const newActivity: Activity = {
+      id: Date.now().toString(),
+      type,
+      action,
+      description,
+      date: new Date().toISOString(),
+      section
+    };
+    setActivities(prev => [newActivity, ...prev].slice(0, 50)); // Keep only last 50 activities
+  };
+
   const renderCurrentSection = () => {
     switch (currentSection) {
+      case 'calcular':
+        return <Calculator onAddClient={addClient} onAddActivity={addActivity} />;
       case 'clients':
         return (
           <ClientManagement
@@ -181,6 +203,8 @@ function App() {
             clients={clients}
             transactions={transactions}
             appointments={appointments}
+            inventory={inventory}
+            activities={activities}
           />
         );
     }

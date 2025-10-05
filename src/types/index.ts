@@ -36,7 +36,7 @@ export interface InventoryItem {
   price: number;
   quantity: number;
   imageUrl?: string;
-  category: string;
+  category?: string;
 }
 
 export interface BusinessSettings {
@@ -53,4 +53,13 @@ export interface BusinessSettings {
     saturday: { start: string; end: string; closed: boolean };
     sunday: { start: string; end: string; closed: boolean };
   };
+}
+
+export interface Activity {
+  id: string;
+  type: 'client' | 'transaction' | 'appointment' | 'inventory' | 'calculation';
+  action: string;
+  description: string;
+  date: string;
+  section: string;
 }

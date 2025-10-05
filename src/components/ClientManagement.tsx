@@ -52,14 +52,14 @@ const ClientManagement: React.FC<ClientManagementProps> = ({
         <h2 className="text-white font-allura text-4xl">Gestión de Clientes</h2>
         <button
           onClick={() => setShowForm(!showForm)}
-          className="bg-forest-green-light text-white px-4 py-2 font-medium hover:bg-forest-green transition-colors"
+          className="bg-midnight-blue-dark text-white px-4 py-2 font-medium hover:bg-midnight-blue transition-colors"
         >
           {showForm ? 'Cancelar' : 'Nuevo Cliente'}
         </button>
       </div>
 
       {showForm && (
-        <div className="bg-forest-green-light p-6 shadow-sm">
+        <div className="bg-midnight-blue-light p-6 shadow-sm">
           <h3 className="text-white text-xl font-medium mb-4">
             {editingClient ? 'Editar Cliente' : 'Nuevo Cliente'}
           </h3>
@@ -72,7 +72,7 @@ const ClientManagement: React.FC<ClientManagementProps> = ({
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
                 placeholder="Nombre completo"
                 required
               />
@@ -85,7 +85,7 @@ const ClientManagement: React.FC<ClientManagementProps> = ({
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
                 placeholder="email@ejemplo.com"
                 required
               />
@@ -98,7 +98,7 @@ const ClientManagement: React.FC<ClientManagementProps> = ({
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
                 placeholder="+1234567890"
                 required
               />
@@ -111,7 +111,7 @@ const ClientManagement: React.FC<ClientManagementProps> = ({
                 type="number"
                 value={formData.totalPaid}
                 onChange={(e) => setFormData({ ...formData, totalPaid: Number(e.target.value) })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
                 placeholder="0"
                 min="0"
                 step="0.01"
@@ -120,7 +120,7 @@ const ClientManagement: React.FC<ClientManagementProps> = ({
             <div className="md:col-span-2 flex gap-2">
               <button
                 type="submit"
-                className="bg-forest-green-dark text-white px-4 py-2 font-medium hover:bg-forest-green transition-colors"
+                className="bg-midnight-blue-dark text-white px-4 py-2 font-medium hover:bg-midnight-blue transition-colors"
               >
                 {editingClient ? 'Actualizar' : 'Guardar'}
               </button>
@@ -131,7 +131,7 @@ const ClientManagement: React.FC<ClientManagementProps> = ({
                   setEditingClient(null);
                   setFormData({ name: '', email: '', phone: '', totalPaid: 0 });
                 }}
-                className="bg-forest-green text-white px-4 py-2 font-medium hover:bg-forest-green-dark transition-colors"
+                className="bg-midnight-blue text-white px-4 py-2 font-medium hover:bg-midnight-blue-dark transition-colors"
               >
                 Cancelar
               </button>
@@ -140,10 +140,10 @@ const ClientManagement: React.FC<ClientManagementProps> = ({
         </div>
       )}
 
-      <div className="bg-forest-green-light shadow-sm overflow-hidden">
+      <div className="bg-midnight-blue-light shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-forest-green-dark">
+            <thead className="bg-midnight-blue-dark">
               <tr>
                 <th className="px-4 py-3 text-left text-white text-sm font-medium">Nombre</th>
                 <th className="px-4 py-3 text-left text-white text-sm font-medium">Email</th>
@@ -154,7 +154,7 @@ const ClientManagement: React.FC<ClientManagementProps> = ({
             </thead>
             <tbody>
               {clients.map((client, index) => (
-                <tr key={client.id} className={index % 2 === 0 ? 'bg-forest-green-light' : 'bg-forest-green'}>
+                <tr key={client.id} className={index % 2 === 0 ? 'bg-midnight-blue-light' : 'bg-midnight-blue'}>
                   <td className="px-4 py-3 text-white">{client.name}</td>
                   <td className="px-4 py-3 text-white">{client.email}</td>
                   <td className="px-4 py-3 text-white">{client.phone}</td>

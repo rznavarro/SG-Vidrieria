@@ -50,7 +50,7 @@ const FinanceControl: React.FC<FinanceControlProps> = ({
         <h2 className="text-white font-allura text-4xl">Control Financiero</h2>
         <button
           onClick={() => setShowForm(!showForm)}
-          className="bg-forest-green-light text-white px-4 py-2 font-medium hover:bg-forest-green transition-colors"
+          className="bg-midnight-blue-dark text-white px-4 py-2 font-medium hover:bg-midnight-blue transition-colors"
         >
           {showForm ? 'Cancelar' : 'Nueva Transacción'}
         </button>
@@ -58,15 +58,15 @@ const FinanceControl: React.FC<FinanceControlProps> = ({
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-forest-green-light p-6 shadow-sm">
+        <div className="bg-midnight-blue-light p-6 shadow-sm">
           <h3 className="text-gray-100 text-sm font-medium mb-2">Ingresos Totales</h3>
           <p className="text-white text-3xl font-bold">${totalIncome.toLocaleString()}</p>
         </div>
-        <div className="bg-forest-green-light p-6 shadow-sm">
+        <div className="bg-midnight-blue-light p-6 shadow-sm">
           <h3 className="text-gray-100 text-sm font-medium mb-2">Gastos Totales</h3>
           <p className="text-white text-3xl font-bold">${totalExpenses.toLocaleString()}</p>
         </div>
-        <div className="bg-forest-green-light p-6 shadow-sm">
+        <div className="bg-midnight-blue-light p-6 shadow-sm">
           <h3 className="text-gray-100 text-sm font-medium mb-2">Ganancia</h3>
           <p className={`text-3xl font-bold ${profit >= 0 ? 'text-white' : 'text-gray-100'}`}>
             ${profit.toLocaleString()}
@@ -75,7 +75,7 @@ const FinanceControl: React.FC<FinanceControlProps> = ({
       </div>
 
       {showForm && (
-        <div className="bg-forest-green-light p-6 shadow-sm">
+        <div className="bg-midnight-blue-light p-6 shadow-sm">
           <h3 className="text-white text-xl font-medium mb-4">Nueva Transacción</h3>
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -85,7 +85,7 @@ const FinanceControl: React.FC<FinanceControlProps> = ({
               <select
                 value={formData.type}
                 onChange={(e) => setFormData({ ...formData, type: e.target.value as 'income' | 'expense' })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white"
                 required
               >
                 <option value="income">Ingreso</option>
@@ -100,7 +100,7 @@ const FinanceControl: React.FC<FinanceControlProps> = ({
                 type="number"
                 value={formData.amount}
                 onChange={(e) => setFormData({ ...formData, amount: Number(e.target.value) })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
                 placeholder="0.00"
                 min="0"
                 step="0.01"
@@ -115,7 +115,7 @@ const FinanceControl: React.FC<FinanceControlProps> = ({
                 type="text"
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
                 placeholder="Descripción de la transacción"
                 required
               />
@@ -128,7 +128,7 @@ const FinanceControl: React.FC<FinanceControlProps> = ({
                 type="text"
                 value={formData.category}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
                 placeholder="Categoría"
                 required
               />
@@ -141,21 +141,21 @@ const FinanceControl: React.FC<FinanceControlProps> = ({
                 type="date"
                 value={formData.date}
                 onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white"
                 required
               />
             </div>
             <div className="md:col-span-2 flex gap-2">
               <button
                 type="submit"
-                className="bg-forest-green-dark text-white px-4 py-2 font-medium hover:bg-forest-green transition-colors"
+                className="bg-midnight-blue-dark text-white px-4 py-2 font-medium hover:bg-midnight-blue transition-colors"
               >
                 Guardar
               </button>
               <button
                 type="button"
                 onClick={() => setShowForm(false)}
-                className="bg-forest-green text-white px-4 py-2 font-medium hover:bg-forest-green-dark transition-colors"
+                className="bg-midnight-blue text-white px-4 py-2 font-medium hover:bg-midnight-blue-dark transition-colors"
               >
                 Cancelar
               </button>
@@ -165,13 +165,13 @@ const FinanceControl: React.FC<FinanceControlProps> = ({
       )}
 
       {/* Transactions List */}
-      <div className="bg-forest-green-light shadow-sm overflow-hidden">
+      <div className="bg-midnight-blue-light shadow-sm overflow-hidden">
         <h3 className="text-white text-xl font-medium p-4 border-b border-gray-400">
           Transacciones Recientes
         </h3>
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-forest-green-dark">
+            <thead className="bg-midnight-blue-dark">
               <tr>
                 <th className="px-4 py-3 text-left text-white text-sm font-medium">Fecha</th>
                 <th className="px-4 py-3 text-left text-white text-sm font-medium">Tipo</th>
@@ -183,7 +183,7 @@ const FinanceControl: React.FC<FinanceControlProps> = ({
             </thead>
             <tbody>
               {transactions.slice().reverse().map((transaction, index) => (
-                <tr key={transaction.id} className={index % 2 === 0 ? 'bg-forest-green-light' : 'bg-forest-green'}>
+                <tr key={transaction.id} className={index % 2 === 0 ? 'bg-midnight-blue-light' : 'bg-midnight-blue'}>
                   <td className="px-4 py-3 text-white">{transaction.date}</td>
                   <td className="px-4 py-3">
                     <span className={`text-white font-medium ${

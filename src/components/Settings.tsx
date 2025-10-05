@@ -30,7 +30,7 @@ const Settings: React.FC<SettingsProps> = ({ settings, onUpdateSettings }) => {
       
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Business Information */}
-        <div className="bg-forest-green-light p-6 shadow-sm">
+        <div className="bg-midnight-blue-light p-6 shadow-sm">
           <h3 className="text-white text-xl font-medium mb-4">Información del Negocio</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -41,8 +41,8 @@ const Settings: React.FC<SettingsProps> = ({ settings, onUpdateSettings }) => {
                 type="text"
                 value={formData.businessName}
                 onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
-                placeholder="Benjamin Castro Barbershop"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
+                placeholder="Juan  Carlos  Gonzales Catalan Barbershop"
                 required
               />
             </div>
@@ -54,20 +54,20 @@ const Settings: React.FC<SettingsProps> = ({ settings, onUpdateSettings }) => {
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
                 placeholder="+1234567890"
                 required
               />
             </div>
             <div>
-              <label className="block text-gray-100 text-sm font-medium mb-1">
+              <label className="block text-white text-sm font-medium mb-1">
                 Email
               </label>
               <input
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
                 placeholder="contact@benjamincastro.com"
                 required
               />
@@ -80,7 +80,7 @@ const Settings: React.FC<SettingsProps> = ({ settings, onUpdateSettings }) => {
                 type="text"
                 value={formData.address}
                 onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
                 placeholder="123 Main Street, Ciudad"
                 required
               />
@@ -89,7 +89,7 @@ const Settings: React.FC<SettingsProps> = ({ settings, onUpdateSettings }) => {
         </div>
 
         {/* Working Hours */}
-        <div className="bg-forest-green-light p-6 shadow-sm">
+        <div className="bg-midnight-blue-light p-6 shadow-sm">
           <h3 className="text-white text-xl font-medium mb-4">Horarios de Trabajo</h3>
           <div className="space-y-4">
             {daysOfWeek.map(day => (
@@ -131,7 +131,7 @@ const Settings: React.FC<SettingsProps> = ({ settings, onUpdateSettings }) => {
                             }
                           }
                         })}
-                        className="p-1 border border-forest-green bg-forest-green text-white text-sm"
+                        className="p-1 border border-midnight-blue bg-midnight-blue text-white text-sm"
                       />
                       <span className="text-gray-100">a</span>
                       <input
@@ -147,19 +147,19 @@ const Settings: React.FC<SettingsProps> = ({ settings, onUpdateSettings }) => {
                             }
                           }
                         })}
-                        className="p-1 border border-forest-green bg-forest-green text-white text-sm"
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+                        className="p-1 border border-midnight-blue bg-midnight-blue text-white text-sm"
+                       />
+                     </div>
+                   )}
+                 </div>
+               </div>
+             ))}
+           </div>
+         </div>
 
-        <button
-          type="submit"
-          className="bg-forest-green-dark text-white px-6 py-3 font-medium hover:bg-forest-green transition-colors"
+         <button
+           type="submit"
+           className="bg-midnight-blue-dark text-white px-6 py-3 font-medium hover:bg-midnight-blue transition-colors"
         >
           Guardar Configuración
         </button>

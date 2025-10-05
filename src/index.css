@@ -5,7 +5,7 @@
 
 body {
   font-family: system-ui, -apple-system, sans-serif;
-  background-color: #1a2f1a;
+  background-color: #1a2a3a;
 }
 
 .font-great-vibes {
@@ -22,11 +22,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a2f1a;
+  background: #1a2a3a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e5e7eb;
+  background: #2d4a5a;
   border-radius: 4px;
 }
 
@@ -45,12 +45,12 @@ input, textarea, select {
 }
 
 input::placeholder, textarea::placeholder {
-  color: #e5e7eb !important;
+  color: #2d4a5a !important;
 }
 
 /* Focus states */
 input:focus, textarea:focus, select:focus {
-  outline: 2px solid #e5e7eb;
+  outline: 2px solid #2d4a5a;
   outline-offset: 2px;
 }
 
@@ -65,7 +65,7 @@ table {
 }
 
 th, td {
-  border-bottom: 1px solid #2d4a2d;
+  border-bottom: 1px solid #2d4a5a;
 }
 
 /* Mobile responsiveness */

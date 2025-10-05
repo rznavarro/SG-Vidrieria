@@ -65,14 +65,14 @@ const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
         <h2 className="text-white font-allura text-4xl">Agenda y Calendario</h2>
         <button
           onClick={() => setShowForm(!showForm)}
-          className="bg-forest-green-light text-white px-4 py-2 font-medium hover:bg-forest-green transition-colors"
+          className="bg-midnight-blue-dark text-white px-4 py-2 font-medium hover:bg-midnight-blue transition-colors"
         >
           {showForm ? 'Cancelar' : 'Nueva Cita'}
         </button>
       </div>
 
       {showForm && (
-        <div className="bg-forest-green-light p-6 shadow-sm">
+        <div className="bg-midnight-blue-light p-6 shadow-sm">
           <h3 className="text-white text-xl font-medium mb-4">Nueva Cita</h3>
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -82,7 +82,7 @@ const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
               <select
                 value={formData.clientId}
                 onChange={(e) => setFormData({ ...formData, clientId: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white"
                 required
               >
                 <option value="">Seleccionar cliente</option>
@@ -101,7 +101,7 @@ const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
                 type="text"
                 value={formData.service}
                 onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
                 placeholder="Corte de cabello, afeitado, etc."
                 required
               />
@@ -114,7 +114,7 @@ const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
                 type="date"
                 value={formData.date}
                 onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white"
                 required
               />
             </div>
@@ -126,7 +126,7 @@ const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
                 type="time"
                 value={formData.time}
                 onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white"
                 required
               />
             </div>
@@ -138,7 +138,7 @@ const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
                 type="number"
                 value={formData.price}
                 onChange={(e) => setFormData({ ...formData, price: Number(e.target.value) })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
                 placeholder="0.00"
                 min="0"
                 step="0.01"
@@ -152,7 +152,7 @@ const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
               <textarea
                 value={formData.notes}
                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                className="w-full p-2 border border-forest-green bg-forest-green text-white placeholder-gray-300"
+                className="w-full p-2 border border-midnight-blue bg-midnight-blue text-white placeholder-midnight-blue-light"
                 placeholder="Notas adicionales..."
                 rows={3}
               />
@@ -160,14 +160,14 @@ const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
             <div className="md:col-span-2 flex gap-2">
               <button
                 type="submit"
-                className="bg-forest-green-dark text-white px-4 py-2 font-medium hover:bg-forest-green transition-colors"
+                className="bg-midnight-blue-dark text-white px-4 py-2 font-medium hover:bg-midnight-blue transition-colors"
               >
                 Guardar
               </button>
               <button
                 type="button"
                 onClick={() => setShowForm(false)}
-                className="bg-forest-green text-white px-4 py-2 font-medium hover:bg-forest-green-dark transition-colors"
+                className="bg-midnight-blue text-white px-4 py-2 font-medium hover:bg-midnight-blue-dark transition-colors"
               >
                 Cancelar
               </button>
@@ -196,7 +196,7 @@ const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
                     <select
                       value={appointment.status}
                       onChange={(e) => updateStatus(appointment.id, e.target.value as any)}
-                      className="px-2 py-1 text-xs bg-forest-green-dark text-white border border-gray-300"
+                      className="px-2 py-1 text-xs bg-midnight-blue-light text-white border border-midnight-blue"
                     >
                       <option value="scheduled">Programada</option>
                       <option value="completed">Completada</option>
@@ -211,13 +211,13 @@ const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
       </div>
 
       {/* All Appointments */}
-      <div className="bg-forest-green-light shadow-sm overflow-hidden">
+      <div className="bg-midnight-blue-light shadow-sm overflow-hidden">
         <h3 className="text-white text-xl font-medium p-4 border-b border-gray-400">
           Todas las Citas
         </h3>
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-forest-green-dark">
+            <thead className="bg-midnight-blue-dark">
               <tr>
                 <th className="px-4 py-3 text-left text-white text-sm font-medium">Cliente</th>
                 <th className="px-4 py-3 text-left text-white text-sm font-medium">Servicio</th>
@@ -230,7 +230,7 @@ const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
             </thead>
             <tbody>
               {appointments.slice().reverse().map((appointment, index) => (
-                <tr key={appointment.id} className={index % 2 === 0 ? 'bg-forest-green-light' : 'bg-forest-green'}>
+                <tr key={appointment.id} className={index % 2 === 0 ? 'bg-midnight-blue-light' : 'bg-midnight-blue'}>
                   <td className="px-4 py-3 text-white">{appointment.clientName}</td>
                   <td className="px-4 py-3 text-white">{appointment.service}</td>
                   <td className="px-4 py-3 text-white">{appointment.date}</td>
@@ -238,9 +238,9 @@ const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
                   <td className="px-4 py-3 text-white font-bold">${appointment.price}</td>
                   <td className="px-4 py-3">
                     <span className={`text-xs px-2 py-1 font-medium ${
-                      appointment.status === 'completed' ? 'bg-forest-green-dark text-white' :
-                      appointment.status === 'cancelled' ? 'bg-forest-green text-white' :
-                      'bg-forest-green-light text-white'
+                      appointment.status === 'completed' ? 'bg-midnight-blue-dark text-white' :
+                      appointment.status === 'cancelled' ? 'bg-midnight-blue text-white' :
+                      'bg-midnight-blue-light text-white'
                     }`}>
                       {appointment.status === 'scheduled' ? 'Programada' :
                        appointment.status === 'completed' ? 'Completada' : 'Cancelada'}
